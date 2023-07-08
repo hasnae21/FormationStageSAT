@@ -1,1 +1,19 @@
 <p>list-users works!</p>
+
+<ng-container  *ngIf="array.length != ' ';  else elseBlock">
+    <ng-container  *ngFor="let item of array">
+      <h2>{{ item.name }}</h2>
+    </ng-container>
+</ng-container>
+
+<ng-template #elseBlock>
+  <h2>No Content</h2>
+</ng-template>
+
+<ng-container  *ngIf="userRole; else ureAdmin">
+  <h2>you have a user role</h2>
+</ng-container>
+
+<ng-template #ureAdmin>
+  <h2>you are an admin </h2>
+</ng-template>

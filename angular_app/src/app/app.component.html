@@ -1,13 +1,26 @@
 
-<h1>welcome to material instalation in Angular</h1>
-
 <button mat-button [matMenuTriggerFor]="menu">Menu</button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item>Item 1</button>
   <button mat-menu-item>Item 2</button>
 </mat-menu>
 
-<section>
+<h1>welcome to material instalation in Angular</h1>
+
+<app-default-home>
+
+  <h1>titre added from app component by ng-content to default-home component called the single slot</h1>
+  <p role>paragramme nomed role called the multipal slot</p>
+  <p rile>paragramme nomed rile called the multipal slot</p>
+  <ng-template #admin>this is for admin content called conditionel slot</ng-template>
+
+</app-default-home>
+
+<app-default-home></app-default-home>
+
+
+
+<!-- <section>
   <div class="example-label">Basic</div>
   <div class="example-button-row">
     <button mat-button>Basic</button>
@@ -16,7 +29,6 @@
     <button mat-button color="warn">Warn</button>
     <button mat-button disabled>Disabled</button>
     <a mat-button href="https://www.google.com/" target="_blank">Link</a>
-  </div>
 </section>
 <mat-divider></mat-divider>
 <section>
@@ -132,7 +144,8 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+<!-- <app-pending-tasks></app-pending-tasks> -->
 
 
 <router-outlet></router-outlet>

@@ -1,0 +1,17 @@
+<p>default-home works!</p>
+
+
+<ng-content ></ng-content>
+<ng-content select="[rile]"></ng-content>
+<ng-content select="[role]"></ng-content>
+
+
+<div *ngIf="adminTemplate">
+  <template [ngTemplateOutlet]="adminTemplate">
+  </template>
+</div>
+
+
+<div #box>
+  <h1 #h1>hello from html default-home</h1>
+</div>
