@@ -23,6 +23,7 @@ contentProject: DefaultHomeComponent;
   homeList!: QueryList<DefaultHomeComponent>;
 
   ngAfterViewInit(): void {
+    
     //this.contentProject.isUserSuperAdmin = true;
     //console. log(this .box.nativeElement. innerHTML) ;
 

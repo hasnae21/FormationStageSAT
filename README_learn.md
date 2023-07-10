@@ -13,6 +13,7 @@
 
 - > __ng generate module <module-name>__
 
+
 # Everything about Angular Components
 
 - Components are the most fundamental building blocks of Angular applications.
@@ -108,12 +109,150 @@ Called immediately before Angular destroys the directive or component.
 
 
 # ViewChild
-
 - We can use @viewChild to inject a reference to existing component or DOM element
 - @ViewChild gets loaded after *ngAfterViewlnit()* method __NOT in oninit__
 
 
 # ViewChildren
-
 - We can use @viewChildren to inject a reference to a query list of a component or DOM element(s)
 - @ViewChildren gets loaded after *ngAfterViewlnit()* method __NOT in oninit__
+
+
+# Data Binding
+- Means to bind the data from view (Template) to Controller (Component class) and vice versa
+- Data binding as the name suggest - interacting with data
+- Defines how the data flows and how the data gets updated based on business logic
+
+1. Each component
+                  users .component.html -> view/HTML/UI
+                  users .component.scss -> classNames
+                  users.component.ts -> what data to be displayed/expressions
+                  users. component. spec.ts
+2. Data is spread throughout these files
+3. Data Binding intercating with data of the component
+4. Data can be from component to template -› one way
+5. Data can be from template to component -> one way
+6. Two way to/from component from/to template
+
+
+## One-way Data Binding
+• Component to View
+            • Interpolation
+            • Property Binding
+            • Style Binding
+            • Attribute Binding
+• View to Component
+• Event Binding
+
+## Two-way Data Binding
+• Data flows from view to component and back to component from the view
+
+# Interpolation
+- Is a technique that allows the user to bind data from component to view( template)
+- The data flow is only one-way i.e from component to view
+- Can be used for integers, strings, objects, arrays and much more
+- Syntax for defining Interpolation is double curly braces __{{ variable_name }}__
+
+# 
+
+
+
+
+
+
+
+# Multiple Router Outlets
+### Example of declaring multiple router outlets
+
+>    <router-outlet></router-outlet>
+>     <router-outlet name="route 1"></router-outlet>
+>     <router-outlet name="route2"></router-outlet>
+>    {
+            path: 'add',
+            component: AddLoansComponent,
+            outlet:'route 1'
+      },
+> http://localhost:4200/loans(route1:add)
+
+
+# Routing - Routing Strategy
+
+• Before we start implementing our routes in our application, its important to understand and plan what will be our routing strategy
+>__import { LocationStrategy } from '@angular/common';__
+• We need to add this in Providers of our Module
+>__{provide: LocationStrategy, useClass: HashLocationStrategy}__
+>Angular provides 2 types of routing strategy we can use:
+            1. PathLocationStrategy
+            2. HashLocationStrategy
+> By default - Angular makes use of the PathLocation Strategy 
+> With HashLocationStrategy  we will see the __#__ in the URL
+> Various examples of HashLocationStrategy are given here:
+- #/products
+- #/product/10
+- #/product/10/details
+- #/product?search=param1
+
+
+# Routing - Base Href
+
+- Wrong configuration leads to pointing to wrong folder root path
+- Setting the base href using the command line -base-href=
+- Syntax: <base href="/<app1>" >
+- __ng build --base-href="<path>"__
+
+# Routing Module
+
+• Routing Module is a placeholder for configuring all routes and navigations in one module
+• Best practice is to have all routes configured in one place
+• Easy to maintain and debug
+
+We can generate the app routing module using the CLI
+• __ng generate module app-routing --flat --module=app__
+
+
+# Router Module
+• We need to import modules from the package
+__import { Routes, RouterModule } from '@angular/router";__
+• We need to configure route path array in the file
+__const routes: Routes = [];__
+• Then we need to define our module
+            • @NgModule({
+            • imports: [RouterModule. forRoot(routes)],
+            • exports: [RouterModule]
+            • })
+We need to export the module
+      __export class AppRoutingModule { }__
+• Import the module in the AppModule file
+
+- We can configure routes to redirect route for various paths
+            Path
+            Component
+            redirect To
+            Children
+            Outlet
+            pathMatch
+
+# Component Routes - Configuring Routes
+
+Create a Routes Array in App Routing module
+__const routes Routes ={ path :" redirectTo: 'home', pathMatch: 'full'},{ path :'home', component : componentName},{ path :'dashboard', component : componentName2 },{ path :'terms', component : componentName3 },{ path: '**', redirect To: 'enroll', pathMatch: 'full'}__
+
+# Router Link
+
+- When applied to an element in a template, makes that element a link that initiates navigation to a route.
+- Navigation opens one or more routed components in one or more <router-outlet> locations on the page.
+- For e.g
+
+<a [routerLink]="['/user/bob']"> Some link </a>
+
+# Query Params
+- We can configure and send query parameters to our routes
+- *Search?keyword=toys&country=usa*
+- We can read the values in the component class and process the parameters
+
+# Routing - Wildcard Routes
+- Wild card intercepts any invalid URLs in our application
+- When NO matching routes are found in the routes array, the router does not know where to go and hence results in console errors.
+- Wild card routes are defined in the routes array using __{path:***}__
+- Usually a component named __PageNotFound__ is mapped as best practice
+- Let's learn how to use wildcard routes in the routing module
