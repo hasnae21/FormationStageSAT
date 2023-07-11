@@ -176,8 +176,7 @@ Called immediately before Angular destroys the directive or component.
 
 
 # Routing - Routing Strategy
-
-• Before we start implementing our routes in our application, its important to understand and plan what will be our routing strategy
+- Before we start implementing our routes in our application, its important to understand and plan what will be our routing strategy
 >__import { LocationStrategy } from '@angular/common';__
 • We need to add this in Providers of our Module
 >__{provide: LocationStrategy, useClass: HashLocationStrategy}__
@@ -194,20 +193,17 @@ Called immediately before Angular destroys the directive or component.
 
 
 # Routing - Base Href
-
 - Wrong configuration leads to pointing to wrong folder root path
 - Setting the base href using the command line -base-href=
 - Syntax: <base href="/<app1>" >
 - __ng build --base-href="<path>"__
 
 # Routing Module
-
 • Routing Module is a placeholder for configuring all routes and navigations in one module
 • Best practice is to have all routes configured in one place
 • Easy to maintain and debug
 
-We can generate the app routing module using the CLI
-• __ng generate module app-routing --flat --module=app__
+> __ng generate module app-routing --flat --module=app__
 
 
 # Router Module
@@ -233,12 +229,10 @@ We need to export the module
             pathMatch
 
 # Component Routes - Configuring Routes
-
 Create a Routes Array in App Routing module
 __const routes Routes ={ path :" redirectTo: 'home', pathMatch: 'full'},{ path :'home', component : componentName},{ path :'dashboard', component : componentName2 },{ path :'terms', component : componentName3 },{ path: '**', redirect To: 'enroll', pathMatch: 'full'}__
 
 # Router Link
-
 - When applied to an element in a template, makes that element a link that initiates navigation to a route.
 - Navigation opens one or more routed components in one or more <router-outlet> locations on the page.
 - For e.g
@@ -253,6 +247,38 @@ __const routes Routes ={ path :" redirectTo: 'home', pathMatch: 'full'},{ path :
 # Routing - Wildcard Routes
 - Wild card intercepts any invalid URLs in our application
 - When NO matching routes are found in the routes array, the router does not know where to go and hence results in console errors.
-- Wild card routes are defined in the routes array using __{path:***}__
+- Wild card routes are defined in the routes array using __{path:**}__
 - Usually a component named __PageNotFound__ is mapped as best practice
 - Let's learn how to use wildcard routes in the routing module
+
+# Routing - Lazy Loading
+- By default, NgModules are eagerly loaded, which means that as soon as the app loads, so do all the NgModules, whether or not they are immediately necessary.
+- For large apps with lots of routes, consider lazy loading- __a design pattern that loads NgModules as needed.__
+- Lazy loading helps keep initial bundle sizes smaller, which in turn helps decrease load times.
+- From Angular 8. loadChildren expects a function that uses the dynamic import syntax to import your lazy-loaded module only when it's needed
+
+- There are 2 steps to create a lazy loading feature module
+    • Create Feature Module
+    • Configure loadChildren in appRouting
+- Feature Module is a module specific to certain functionality
+- To load a feature module lazily (only on demand) we need to load its children usin
+- the __loadChildren__  property in route configuration
+> __ng g module customers --route customer --module app.module__
+
+# Routing - Route Guards
+- Use route guards to prevent users from navigating to parts of an app without authorization
+- Route Guards are used to secure the route paths
+- In most cases, the routes and screens are protected behind a good authentication system
+- The route guard resolves to true or false based on custom logic and functionality
+- We can generate any number of guards based on our application requirements
+
+> __ng generate guard <guard-name>__
+
+- Inject the guard in our module under providers
+- There are various types of route guards available
+      • __CanActivate__ - Checks to see if a user can visit a route
+      • __CanActivateChild__ - Checks to see if a user can visit a routes children
+      • __CanLoad__ - Checks to see if a user can route to a module that lazy loaded  <!-- deprecated-->
+      • __CanDeactivate__ - Checks to see if a user can exit a route
+      •  __Resolve__ - Performs route data retrieval before route activation    
+- The route guard resolves to *true* or *false* based on custom logic and functionality 

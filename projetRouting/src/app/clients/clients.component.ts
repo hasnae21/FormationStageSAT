@@ -17,6 +17,5 @@ export class ClientsComponent implements OnInit{
     { clientId: 16, firstName: 'Ryhnaj', lastName: 'tyr5yh'}
   ];
 
-  ngOnInit():void{
-  }
+  ngOnInit():void{}
 }

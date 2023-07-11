@@ -8,6 +8,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SearchComponent implements OnInit{
 
+  isDirty =true ;
+
+
   color = ' ';
   size = 'M';
   priceFrom = 0;
