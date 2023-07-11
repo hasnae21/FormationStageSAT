@@ -1,5 +1,7 @@
-import { CanActivateFn } from '@angular/router';
+import { CanActivateFn, Resolve } from '@angular/router';
 
-export const adminGuard: CanActivateFn = (route, state) => {
-  return false;
-};
+// export const adminGuard: Resolve<any> = (route, state) => {
+
+
+//   return false;
+// };

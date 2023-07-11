@@ -220,13 +220,8 @@ We need to export the module
       __export class AppRoutingModule { }__
 • Import the module in the AppModule file
 
-- We can configure routes to redirect route for various paths
-            Path
-            Component
-            redirect To
-            Children
-            Outlet
-            pathMatch
+- We can configure routes to redirect route for various paths :
+    Path, Component, redirect To, Children, Outlet, pathMatch
 
 # Component Routes - Configuring Routes
 Create a Routes Array in App Routing module
@@ -280,5 +275,55 @@ __const routes Routes ={ path :" redirectTo: 'home', pathMatch: 'full'},{ path :
       • __CanActivateChild__ - Checks to see if a user can visit a routes children
       • __CanLoad__ - Checks to see if a user can route to a module that lazy loaded  <!-- deprecated-->
       • __CanDeactivate__ - Checks to see if a user can exit a route
-      •  __Resolve__ - Performs route data retrieval before route activation    
+      •  __Resolve__ - Performs route data retrieval before route activation  <!--deprecated-->
 - The route guard resolves to *true* or *false* based on custom logic and functionality 
+
+
+### Resolve route guard 
+1. allows us to provide data needed for a route
+2. If some data is "MANDATORY" for a component - try using the logic from __ngOnit__ to Resolve
+3. Using the *activatedRoute.snapshot.data* we can access data and process it
+
+## Exemple of a resorve Guard 
+> const routes: Routes = [
+  {
+    path: 'user/:id',
+    component: UserComponent,
+    resolve: {
+      user: UserResolver
+    }
+  }
+];
+
+``
+- In this example, the `resolve` object has a property called `user` that is resolved by the `UserResolver` function.
+
+> @Injectable({
+  providedIn: 'root'
+})
+export class UserResolver implements Resolve<User> {
+  constructor(private userService: UserService) {}
+
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<User> | Promise<User> | User {
+    const id = route.paramMap.get('id');
+    return this.userService.getUser(id);
+  }
+}
+
+``
+- In this example, the `UserResolver` class implements the `Resolve` interface, which specifies the `resolve` method. The `resolve` method takes an `ActivatedRouteSnapshot` and a `RouterStateSnapshot` as arguments, and returns an observable, promise, or value that will be resolved with the user data.
+
+> export class UserComponent implements OnInit {
+  user: User;
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.user = this.route.snapshot.data.user;
+  }
+}
+
+``
+- In this example, we're using the `ActivatedRoute` service to access the `ActivatedRouteSnapshot` for the current route, and then accessing the resolved `user` property from the `data` object.

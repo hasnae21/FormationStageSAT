@@ -7,7 +7,7 @@ import { ClientsComponent } from './clients/clients.component';
 import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { authGuard } from './auth.guard';
-import { adminGuard } from './admin.guard';
+//import { adminGuard } from './admin.guard';
 import { superAdminGuard } from './super-admin.guard';
 import { adminAccessGuard } from './admin-access.guard';
 import { AdminManagerComponent } from './admin-manager/admin-manager.component';
@@ -28,7 +28,7 @@ const routes : Routes = [
   { path: 'home',component:AddLoansComponent },
 
 
-  { path: 'clients',component:ClientsComponent, canActivate:[authGuard, adminGuard] },
+  { path: 'clients',component:ClientsComponent, canActivate:[authGuard] },
 
   { path: 'search',          //guard from search to admin
   component:SearchComponent,
