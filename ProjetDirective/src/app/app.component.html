@@ -1,0 +1,68 @@
+<h1>{{title}}</h1>
+
+<ng-container *ngIf="success_msg; then updated_msg else error_msg"></ng-container>
+
+<ng-template #updated_msg>
+  <div style="background-color: blue;">User was updated</div>
+</ng-template>
+
+<ng-template #error_msg>
+  <div style="background-color: red;">User was not added</div>
+</ng-template>
+
+
+
+
+<h2>First and Last</h2>
+<ul>
+  <li *ngFor="let item of contacts; index as i; first as f; last as l">
+    <div *ngIf="f" style="background-color: aquamarine;">this is the first record</div>
+    <div>
+          {{i}} {{ item.Name }} {{ item.Email }} {{ item.id }}
+    </div>
+    <div *ngIf="l" style="background-color:bisque;">this is the last record</div>
+  </li>
+</ul>
+
+<h2>Odd and Even</h2>
+<ul>
+  <li *ngFor="let item of contacts; even as e; odd as o">
+    <div *ngIf="e" style="background-color: antiquewhite;">{{ item.Name}} {{ item.Email}} {{ item.id}}</div>
+    <div *ngIf="o" style="background-color:aqua;" >{{ item.Name}} {{ item.Email}} {{ item.id}}</div>
+  </li>
+</ul>
+
+
+<h2>ngSwitch</h2>
+
+<div [ngSwitch]="superPower">
+  <div *ngSwitchCase=" 'wonderWomen' "> case 1</div>
+  <div *ngSwitchCase=" 'superMan' ">case 2</div>
+  <div *ngSwitchCase=" 'heMan' ">case 3</div>
+  <div *ngSwitchDefault=" 'SpiderMan' ">case default</div>
+</div>
+
+<div [ngSwitch]="tax">
+  <div *ngSwitchCase=" 10 "> case 1</div>
+  <div *ngSwitchCase=" 20">case 2</div>
+  <div *ngSwitchCase=" 30 ">case 3</div>
+  <div *ngSwitchDefault=" 40 ">case default</div>
+</div>
+
+
+<h2>learnig ngStyle</h2>
+
+<div [ngStyle]=" { 'background-color' : 'green' , 'color': '#fff'} ">this is a green div</div>
+<div [ngStyle]=" { 'background-color' : styleProp , 'color': '#fff'} ">this is a dynamic colored div</div>
+<div [ngStyle]=" {'color': textColor === 'red' ? 'blue' : 'green'} ">this is a conditional colored div</div>
+
+<h2>learnig ngClass</h2>
+
+<div [ngClass]="'c1'"> This is ngClass example </div>
+<div [ngClass]=" 'c1 c2' " >This is ngClass Multiple classes example</div>
+
+<div [ngClass]="styleC1sProp"> This is ngClass using variable example </div>
+<div [ngClass]="conditionCIsProp === 'c4'? 'c4' : 'c5'"> This is ngClass using cond </div>
+<div [ngClass]="('c4: true, c5: true')"> This is ngClass using Object example  </div>
+
+<router-outlet></router-outlet>

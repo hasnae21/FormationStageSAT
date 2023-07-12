@@ -172,8 +172,11 @@ Called immediately before Angular destroys the directive or component.
             component: AddLoansComponent,
             outlet:'route 1'
       },
-> http://localhost:4200/loans(route1:add)
 
+
+
+
+> http://localhost:4200/loans(route1:add)
 
 # Routing - Routing Strategy
 - Before we start implementing our routes in our application, its important to understand and plan what will be our routing strategy
@@ -285,45 +288,36 @@ __const routes Routes ={ path :" redirectTo: 'home', pathMatch: 'full'},{ path :
 3. Using the *activatedRoute.snapshot.data* we can access data and process it
 
 ## Exemple of a resorve Guard 
-> const routes: Routes = [
-  {
-    path: 'user/:id',
-    component: UserComponent,
-    resolve: {
-      user: UserResolver
-    }
-  }
-];
+> https://poe.com/s/aiFo9dX6BZDhqVrje7Ls
 
-``
-- In this example, the `resolve` object has a property called `user` that is resolved by the `UserResolver` function.
 
-> @Injectable({
-  providedIn: 'root'
-})
-export class UserResolver implements Resolve<User> {
-  constructor(private userService: UserService) {}
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<User> | Promise<User> | User {
-    const id = route.paramMap.get('id');
-    return this.userService.getUser(id);
-  }
-}
+# Directives 
 
-``
-- In this example, the `UserResolver` class implements the `Resolve` interface, which specifies the `resolve` method. The `resolve` method takes an `ActivatedRouteSnapshot` and a `RouterStateSnapshot` as arguments, and returns an observable, promise, or value that will be resolved with the user data.
+- Angular directives are used to extend the power of the HTML by giving it new syntax
+- Directives can extend, change or modify behavior of the DOM elements
 
-> export class UserComponent implements OnInit {
-  user: User;
-  constructor(private route: ActivatedRoute) {}
+- There are 3 types of Directives :
+    1. Component Directives
+        - Every Angular application must have at least *one* component
+        - Have it's own templates
+        - Events attached
+    2. Structural Directives (*)
+        - Updates structure of the view
+        - __ngFor__, __nglf__ and __ngSwitch__
+    3. Attribute Directives
+        - __ngStyle__, __ngClass__
 
-  ngOnInit() {
-    this.user = this.route.snapshot.data.user;
-  }
-}
+> _ ng g directive <name-directive>
 
-``
-- In this example, we're using the `ActivatedRoute` service to access the `ActivatedRouteSnapshot` for the current route, and then accessing the resolved `user` property from the `data` object.
+###  What are Structural Directives? 
+- Structural directives are responsible for HTML layout. They shape or reshape the DOM's structure, typically by adding, removing, or manipulating elements
+- As with other directives, you apply a structural directive to a host element. The directive then does whatever it's supposed to do with that host element and its descendants
+- Structural directives are easy to recognize. An asterisk __(*)__ 
+
+
+#### ngStyle
+
+- The ng Style directives lets you set a given DOM elements style properties.
+- We can pass dynamic values via variables
+- For e.g <div [ngStyle]=" background-color': value">Example 1</div>
