@@ -173,10 +173,8 @@ Called immediately before Angular destroys the directive or component.
             outlet:'route 1'
       },
 
-
-
-
 > http://localhost:4200/loans(route1:add)
+
 
 # Routing - Routing Strategy
 - Before we start implementing our routes in our application, its important to understand and plan what will be our routing strategy
@@ -216,19 +214,24 @@ __import { Routes, RouterModule } from '@angular/router";__
 __const routes: Routes = [];__
 • Then we need to define our module
             • @NgModule({
-            • imports: [RouterModule. forRoot(routes)],
-            • exports: [RouterModule]
+                • imports: [RouterModule. forRoot(routes)],
+                • exports: [RouterModule]
             • })
 We need to export the module
       __export class AppRoutingModule { }__
 • Import the module in the AppModule file
 
 - We can configure routes to redirect route for various paths :
-    Path, Component, redirect To, Children, Outlet, pathMatch
+    Path, 
+    Component, 
+    redirect To, 
+    Children, 
+    Outlet, 
+    pathMatch
 
 # Component Routes - Configuring Routes
-Create a Routes Array in App Routing module
-__const routes Routes ={ path :" redirectTo: 'home', pathMatch: 'full'},{ path :'home', component : componentName},{ path :'dashboard', component : componentName2 },{ path :'terms', component : componentName3 },{ path: '**', redirect To: 'enroll', pathMatch: 'full'}__
+- Create a Routes Array in App Routing module
+> const routes Routes ={ path :" redirectTo: 'home', pathMatch: 'full'},{ path :'home', component : componentName},{ path :'dashboard', component : componentName2 },{ path :'terms', component : componentName3 },{ path: '**', redirect To: 'enroll', pathMatch: 'full'}__
 
 # Router Link
 - When applied to an element in a template, makes that element a link that initiates navigation to a route.
@@ -259,7 +262,7 @@ __const routes Routes ={ path :" redirectTo: 'home', pathMatch: 'full'},{ path :
     • Create Feature Module
     • Configure loadChildren in appRouting
 - Feature Module is a module specific to certain functionality
-- To load a feature module lazily (only on demand) we need to load its children usin
+- To load a feature module lazily (only on demand) we need to load its children using
 - the __loadChildren__  property in route configuration
 > __ng g module customers --route customer --module app.module__
 
@@ -321,3 +324,23 @@ __const routes Routes ={ path :" redirectTo: 'home', pathMatch: 'full'},{ path :
 - The ng Style directives lets you set a given DOM elements style properties.
 - We can pass dynamic values via variables
 - For e.g <div [ngStyle]=" background-color': value">Example 1</div>
+
+
+# Pipes
+- Pipes are used to transform the data
+- Pipes will take data input and convert/transform into a desired format
+- Pipes are written using the pipe operator (I)
+- We can apply pipes to any view/template and to any data inputs
+
+#### Types of Pipes
+• Built in Pipes
+      • Lowercase
+      • Uppercase
+      • Currency
+      • Date
+• Parametrized Pipes
+    • We can pass one or more parameters to pipes
+• Chaining Pipes
+    • We can connect multiple pipes to a data input
+• Custom Pipes
+    • We can create our own custom pipes for various data formatting
