@@ -1,0 +1,43 @@
+
+<!--<form [formGroup]="addCustomersForm" >
+  First Name : <input type="text" formControlName="firstName">
+  Last Name :<input type="text" formControlName="lastName">
+  E-mail :<input type="email" formControlName="mail">
+  Password :<input type="password" formControlName="psw"> 
+  <button type="submit" (click)="addCustomerData()"> Add customer</button> -->
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h1>Reactive Form</h1>
+
+        <form [formGroup]="addCustomersForm">
+          <div class="mb-3">
+            <label for="inputText4" class="form-label">First name</label>
+            <input type="text" class="form-control" id="inputText4" formControlName="firstName" autocomplete>
+            <span class="text-muted" *ngIf="addCustomersForm.get('firstName')?.hasError('required') && addCustomersForm.get('firstName')?.touched"> First Name is required </span>
+          </div>
+          <div class="mb-3">
+            <label for="inputText5" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="inputText5" formControlName="lastName" autocomplete>
+            <span class="text-muted" *ngIf="addCustomersForm.get('lastName')?.hasError('required') && addCustomersForm.get('lastName')?.touched"> Last Name is required </span>
+          </div>
+          <div class="mb-3">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" formControlName="mail" autocomplete>
+            <span class="text-muted" *ngIf="addCustomersForm.get('mail')?.hasError('required') && addCustomersForm.get('mail')?.touched"> Email is required </span>
+          </div>
+          <div class="mb-3">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" formControlName="psw" autocomplete>
+            <span class="text-muted" *ngIf="addCustomersForm.get('psw')?.hasError('minlength') && addCustomersForm.get('psw')?.touched"> Password should contain at least 10 characters </span>
+            <span class="text-muted" *ngIf="addCustomersForm.get('psw')?.hasError('maxlength') && addCustomersForm.get('psw')?.touched"> Password should not be more than 20 characters </span>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" (click)="addCustomerData()" [disabled]="!addCustomersForm.valid">Add customer</button>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
