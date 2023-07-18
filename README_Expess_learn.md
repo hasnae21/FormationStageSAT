@@ -45,8 +45,41 @@ How to use Express Generator?
 Or
 •__npm express-generator__
 
+
 # What is a Template Engine?
 
 - A template engine enables you to use static template files in your application.
 - At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client.
 - This approach makes it easier to design an HTML page.
+
+
+#  What is MongoDB?
+
+• MongoDB is a document database with the scalability and flexibility that you want with the querying and indexing that you need
+• A document-oriented database provides APIs or a query/update language that exposes the ability to query or update based on the internal structure in the document
+• MongoDB documents are composed of field-and-value pairs and have the following structure
+• Example
+    {
+        field1: value1,
+        field2: value2
+    }
+
+#  What is Mongoose?
+
+• Elegant mongodb object modeling for node.js
+• Mongoose provides a straight-forward, schema-based solution to model your application data.
+• It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+
+####  Let's install Mongoose on our machines
+- Visit official website: http://mongoosejs.com
+- Install using npm package module
+> __npm install mongoose --save__
+
+#### To connect to MongoDB - Follow the below steps
+- Step #1 - var mongoose = require('mongoose");
+- Step #2 - Create a Properties File
+- Step #3 - Import the properties file in index.js file
+- Step #4 - mongoose.connect(dbURL);
+- Step #5 - mongoose.connection.on('connected', function(){
+    console.log("Mongoose default connection is open to ", dbURL);
+});
