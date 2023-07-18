@@ -39,17 +39,17 @@
 - /Output: { acknowledged: true, deletedCount: nombre-deleted }
 
 ### - search withing a condition :
-<!--lease then -->
+- /*lease then*/
 >  db.collection-name.find({"age":{$lt:23}})
-<!--lease and equal then-->
+- /*lease and equal then*/
 > db.collection-name.find({"age": {$lte: 23}})  
-<!--equal-->
+- /*equal*/
 > db.collection-name.find({"age":{$eq:23}})
-<!--not equal-->
+- /*not equal*/
 > db.collection-name.find({"age": {$ne: 23}})
-<!--greater then-->
+- /*greater then*/
 >  db.collection-name.find({"age":{$gt:23}})
-<!--greater and equal  then-->
+- /*greater and equal  then*/
 >  db.collection-name.find({"age":{$gte:23}})
 
 ### - show a limited nbr of data : 
