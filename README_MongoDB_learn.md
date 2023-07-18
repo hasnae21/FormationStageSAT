@@ -2,7 +2,7 @@
 - show databases list:
 > show dbs
 
--show collections list:
+- show collections list:
 > show collections
 
 - create database :
