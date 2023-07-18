@@ -17,14 +17,14 @@
 
 # Install Express JS using the steps
 
-> Step #1 - We should have the Node and the npm (node package manager) installed.
+- Step #1 - We should have the Node and the npm (node package manager) installed.
 __node --version__
 __npm--version__
-> Step #2 - Since we will need to continuously change/update code - we want it to auto monitor/hot reload
+- Step #2 - Since we will need to continuously change/update code - we want it to auto monitor/hot reload
 __npm i -g nodemon__
-> Step #3 - Initialize the npm using the below command 
+- Step #3 - Initialize the npm using the below command 
 __npm init__
-> Step #4 - Install Express using the below command
+- Step #4 - Install Express using the below command
 __npm i express --save__
 
 
