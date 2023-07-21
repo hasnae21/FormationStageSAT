@@ -1,0 +1,23 @@
+<p> add-users works! </p>
+
+<form #addCustomerForm="ngForm" (submit)="addCustomer(addCustomerForm)">
+
+  <input type="text" [(ngModel)]="firstname" name="firstname" required>
+  <br>
+  <input type="checkbox" [(ngModel)]="terms" name="terms" required> Terms and conditions
+  <br>
+  <select [(ngModel)]="customerType" name="customerType" required>
+    <option value="1">basic</option>
+    <option value="2">Standard</option>
+    <option value="3">Premuim</option>
+    <option value="4">Plathenuim</option>
+  </select>
+  <br>
+  <textarea [(ngModel)]="description" name="description" minlength="15"></textarea>
+  <br>
+  <button class="btn btn-primary" type="submit" [disabled]="!addCustomerForm.valid">Add customer</button>
+  <br>
+  <button class="btn btn-link" (click)="resetForm(addCustomerForm)">Clean form</button>
+  <button class="btn btn-link" (click)="loadFormValue(addCustomerForm)">fill form</button>
+
+</form>

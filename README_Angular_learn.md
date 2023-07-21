@@ -227,15 +227,13 @@ We need to export the module
 # Component Routes - Configuring Routes
 
 - Create a Routes Array in App Routing module
-  > const routes Routes =[ { path :" redirectTo: 'home', pathMatch: 'full'},{ path :'home', component : componentName},{ path :'dashboard', component : componentName2 },{ path :'terms', component : componentName3 },{ path: '**', redirect To: 'enroll', pathMatch: 'full'} ]
+> const routes Routes =[ { path :" redirectTo: 'home', pathMatch: 'full'},{ path :'home', component : componentName},{ path :'dashboard', component : componentName2 },{ path :'terms', component : componentName3 },{ path: '**', redirect To: 'enroll', pathMatch: 'full'} ]
 
 # Router Link
 
 - When applied to an element in a template, makes that element a link that initiates navigation to a route.
 - Navigation opens one or more routed components in one or more <router-outlet> locations on the page.
-- For e.g
-
-<a [routerLink]="['/user/bob']"> Some link </a>
+- <a [routerLink]="['/user/bob']"> Some link </a>
 
 # Query Params
 
@@ -247,7 +245,7 @@ We need to export the module
 
 - Wild card intercepts any invalid URLs in our application
 - When NO matching routes are found in the routes array, the router does not know where to go and hence results in console errors.
-- Wild card routes are defined in the routes array using **{path:**}**
+- Wild card routes are defined in the routes array using __{path:**}__
 - Usually a component named **PageNotFound** is mapped as best practice
 - Let's learn how to use wildcard routes in the routing module
 
@@ -266,6 +264,8 @@ We need to export the module
 - the **loadChildren** property in route configuration
   > **ng g module customers --route customer --module app.module**
 
+
+
 # Routing - Route Guards
 
 - Use route guards to prevent users from navigating to parts of an app without authorization
@@ -280,19 +280,19 @@ We need to export the module
 - There are various types of route guards available
   • **CanActivate** - Checks to see if a user can visit a route
   • **CanActivateChild** - Checks to see if a user can visit a routes children
-  • **CanLoad** - Checks to see if a user can route to a module that lazy loaded <!-- deprecated-->
   • **CanDeactivate** - Checks to see if a user can exit a route
+  • **CanLoad** - Checks to see if a user can route to a module that lazy loaded <!-- deprecated-->
   • **Resolve** - Performs route data retrieval before route activation <!--deprecated-->
 - The route guard resolves to _true_ or _false_ based on custom logic and functionality
 
 ### Resolve route guard
-
 1. allows us to provide data needed for a route
 2. If some data is "MANDATORY" for a component - try using the logic from **ngOnit** to Resolve
 3. Using the _activatedRoute.snapshot.data_ we can access data and process it
 
 ##### Exemple of a resorve Guard
 > https://poe.com/s/aiFo9dX6BZDhqVrje7Ls
+
 
 # Directives
 
@@ -310,7 +310,7 @@ We need to export the module
   3. Attribute Directives
      - **ngStyle**, **ngClass**
 
-> \_ ng g directive <name-directive>
+> ng g directive <name-directive>
 
 ### What are Structural Directives?
 - Structural directives are responsible for HTML layout. They shape or reshape the DOM's structure, typically by adding, removing, or manipulating elements
@@ -344,6 +344,7 @@ We need to export the module
 
 
 # Services 
+> __ng generate service <service-name>__
 
 ### Dependency Injection
 • Dependency injection (DI), is an important application design pattern.
@@ -362,3 +363,10 @@ We need to export the module
 6. Services are commonly used for making HTTP requests to our endpoints APIs to request and receive the response
 7. A service can have a value, methods or a combination of both!
 -------------------------------------------------------------------
+
+### HttpClient
+1. HttpClient is used for performing HTTP requests and responses.
+2. The HttpClient service is available in the @angular/common/http package
+3. The new HttpClient service is included in the Http Client module which is used to initiate HTTP request and responses in Angular apps
+4. The HttpClientModule needs to be imported into the module. Usually in the app module.
+5. HttpClient also gives other useful functionality like *params*, *interceptors*, *headers* etc
