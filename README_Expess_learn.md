@@ -83,3 +83,47 @@ Or
 - Step #5 - mongoose.connection.on('connected', function(){
     console.log("Mongoose default connection is open to ", dbURL);
 });
+
+
+## CRUD METHODES :
+- save()
+- find()
+- findById()
+
+#### Delete Documents
+    • Remove()
+    • findByldAndRemove()
+    • deleteOne()
+    • findByldAndDelete()
+    • findOneAndRemove()
+
+#### Update Documents
+
+    • findOneAndUpdate()
+    Student.findOneAndUpdate({name: "ARC"}, {age: 40}, function (err, response) {
+    console.log(response);
+    });
+
+    • update()
+    Student.update({age: 25}, {nationality: "American"}, function(err, response){
+    console.log(response);})
+
+    • findByldAndUpdate()
+    Student.findByldAndUpdate("507f1f77bcf86cd799439011", {name: "James"},
+    function(err, response) {
+    console.log(response);
+    })
+
+
+
+
+// router.delete('/deleteById', async function (req, res, next) {
+//     try {
+//         const Id = req.query.studentId;
+//         const student = await StudentModel.findByIdAndRemove(Id);
+//         res.send({students: student });
+//     }
+//     catch (err) {
+//         console.log(err);
+//     }
+// });

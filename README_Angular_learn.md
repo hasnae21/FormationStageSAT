@@ -163,12 +163,10 @@ Called immediately before Angular destroys the directive or component.
 > <router-outlet name="route 1"></router-outlet>
 > <router-outlet name="route2"></router-outlet>
 > {
-
-            path: 'add',
-            component: AddLoansComponent,
-            outlet:'route 1'
-      },
-
+      path: 'add',
+      component: AddLoansComponent,
+      outlet:'route 1'
+  },
 > http://localhost:4200/loans(route1:add)
 
 # Routing - Routing Strategy
@@ -315,18 +313,16 @@ We need to export the module
 > \_ ng g directive <name-directive>
 
 ### What are Structural Directives?
-
 - Structural directives are responsible for HTML layout. They shape or reshape the DOM's structure, typically by adding, removing, or manipulating elements
 - As with other directives, you apply a structural directive to a host element. The directive then does whatever it's supposed to do with that host element and its descendants
 - Structural directives are easy to recognize. An asterisk **(\*)**
 
 #### ngStyle
-
 - The ng Style directives lets you set a given DOM elements style properties.
 - We can pass dynamic values via variables
 - For e.g <div [ngStyle]=" background-color': value">Example 1</div>
 
-# Pipes
+## Pipes
 
 - Pipes are used to transform the data
 - Pipes will take data input and convert/transform into a desired format
@@ -334,7 +330,6 @@ We need to export the module
 - We can apply pipes to any view/template and to any data inputs
 
 #### Types of Pipes
-
 • Built in Pipes
 • Lowercase
 • Uppercase
@@ -346,3 +341,24 @@ We need to export the module
 • We can connect multiple pipes to a data input
 • Custom Pipes
 • We can create our own custom pipes for various data formatting
+
+
+# Services 
+
+### Dependency Injection
+• Dependency injection (DI), is an important application design pattern.
+• Dependency injection is the ability to add the functionality of components at runtime
+• The DI framework lets you supply data to a component from an injectable service class, defined in its own file
+• Angular has its own DI framework, which is typically used in the design of Angular applications to increase their efficiency and modularity.
+• Dependencies are services or objects that a class needs to perform its function.
+• DI is a coding pattern in which a class asks for dependencies from external sources rather than creating them itself.
+
+----------------------------------------------------------------
+1. Services allows us to create reusable common shared functionality between various modules and components
+2. Services are singleton
+3. Services are injected into application using Dependency Injection mechanism
+4. We need to create and inject services in components where we want to use them
+5. Services are an abstraction layer or process layer which consists of our application business logic
+6. Services are commonly used for making HTTP requests to our endpoints APIs to request and receive the response
+7. A service can have a value, methods or a combination of both!
+-------------------------------------------------------------------
