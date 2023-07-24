@@ -385,5 +385,20 @@ We need to export the module
 
 
 ### Observeble
+
+1. How to create observable
+    1.1 RxJS operator __"of"__
+                -> convert any array into Observable
+    1.2 __new Observable__
+    1.3 Always add __"$"__ sign to variables -> they are observables
+2. Where to create new Observables
+    -> unit tests -> mock data to your components/services ?
+    -> new Observable -> send data
+3. Observable and Subscribe with HTTP
+    -> API and UI integration
+
+    
+------------------------------------
 ![Alt text](Observe.PNG)
+-------------------------------------
 ![Alt text](Observable.PNG)

@@ -9,7 +9,7 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
   
-  deleteUser(id: any): Observable<object>{
+  deleteUser(id: any){
 
     // Http Interceptors
     const headersApp3 = new HttpHeaders({
