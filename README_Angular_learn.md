@@ -86,22 +86,18 @@ Called immediately before Angular destroys the directive or component.
 1. via Parent to Child
    - (@Input)
 2. via Child to Parent
-
    - ViewChild
    - @Output / Event Emitter
 
 3. Between different components - not releated
-
 - via **Services**
 
 ## ng-container
-
 - In Angular, you cannot use more than one template binding on an element.
 - This approach helps in removing the redundant div element to the DOM.
 - Think of **ng-container** as a external parent element used for wrapping child elements
 
 ## ng-template
-
 - Angular's <ng-template> element defines a template that doesn't render anything by default.
 - Used with structural directives like **nglf**, **ngSwitch**, **ngFor** etc
 
@@ -133,7 +129,6 @@ Called immediately before Angular destroys the directive or component.
 6. Two way to/from component from/to template
 
 ## One-way Data Binding
-
 • Component to View
 • Interpolation
 • Property Binding
@@ -154,6 +149,7 @@ Called immediately before Angular destroys the directive or component.
 - Syntax for defining Interpolation is double curly braces **{{ variable_name }}**
 
 #
+
 
 # Multiple Router Outlets
 
