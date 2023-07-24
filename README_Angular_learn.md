@@ -370,3 +370,20 @@ We need to export the module
 3. The new HttpClient service is included in the Http Client module which is used to initiate HTTP request and responses in Angular apps
 4. The HttpClientModule needs to be imported into the module. Usually in the app module.
 5. HttpClient also gives other useful functionality like *params*, *interceptors*, *headers* etc
+
+
+### Http Interceptors
+• Intercepts and handles an HttpRequest or HttpResponse
+• Most interceptors transform the outgoing request before passing it to the next interceptor in the chain, by calling next.handle(transformedReq)
+• An interceptor may transform the response event stream as well, by applying additional RxJS operators on the stream returned by *next.handle()* It is also rare but valid for an interceptor to return multiple responses on the event stream for a single request
+
+### Generate HTTP Interceptor
+1. __> ng g interceptor  <name>__
+2. { provide: HTTP_INTERCEPTORS, useClass: Mylnterceptor, multi: true }   //in app.module
+3. next.handle(request.clone({setHeaders: {API KEY } }));   //in interceptor
+
+
+
+### Observeble
+![Alt text](Observe.PNG)
+![Alt text](Observable.PNG)

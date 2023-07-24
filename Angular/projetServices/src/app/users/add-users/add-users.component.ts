@@ -15,9 +15,7 @@ export class AddUsersComponent implements OnInit {
   customerType: String = ' ';
   description: String = ' ';
   constructor(private usersService: UsersService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   addCustomer(formValue: NgForm) {
     console.log(formValue.value);
@@ -26,26 +24,11 @@ export class AddUsersComponent implements OnInit {
       title: formValue.value.firstname,
       body: formValue.value.description
     };
-
     this.usersService.addUsers(postBody).subscribe(data => {
       console.log(data);
     }, (err) => {
       console.log("Unable to add user" + err);
     })
-
-    //console.log(postBody);
-  }
-  resetForm(formDirt: NgForm) {
-    formDirt.reset();
-  }
-  loadFormValue(formValue: NgForm) {
-    let Data = {
-      firstname: 'Hasnae',
-      terms: true,
-      customerType: '3',
-      description: 'Description writting by AHOUZI Hasnae'
-    }
-    formValue.setValue(Data);
   }
 
 }

@@ -16,8 +16,5 @@
   <textarea [(ngModel)]="description" name="description" minlength="15"></textarea>
   <br>
   <button class="btn btn-primary" type="submit" [disabled]="!addCustomerForm.valid">Add customer</button>
-  <br>
-  <button class="btn btn-link" (click)="resetForm(addCustomerForm)">Clean form</button>
-  <button class="btn btn-link" (click)="loadFormValue(addCustomerForm)">fill form</button>
 
 </form>
