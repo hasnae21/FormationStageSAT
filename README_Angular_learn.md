@@ -398,3 +398,8 @@ We need to export the module
 ![Alt text](Observe.PNG)
 -------------------------------------
 ![Alt text](Observable.PNG)
+
+
+## How to install json-server :
+__> npm install json-server__ 
+__> json-server --watch db.json__
