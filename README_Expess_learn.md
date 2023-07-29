@@ -114,16 +114,3 @@ Or
     console.log(response);
     })
 
-
-
-
-// router.delete('/deleteById', async function (req, res, next) {
-//     try {
-//         const Id = req.query.studentId;
-//         const student = await StudentModel.findByIdAndRemove(Id);
-//         res.send({students: student });
-//     }
-//     catch (err) {
-//         console.log(err);
-//     }
-// });

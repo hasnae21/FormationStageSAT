@@ -1,24 +1,23 @@
 var createError = require('http-errors');
-var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
+var express = require('express');
+var app = express();
+
+
+/////////////////////////// connect to mongoDB
 var mongoose = require('mongoose');
-///////////////////////////
 var dbURL = require("./properties").DB_URL;
 mongoose.connect(dbURL);
+
 mongoose.connection.on("connected", () => {
     console.log("Connected to MongoDB using MongooseJS");
 });
-///////////////////////////
-var StudentModel = require('./models/student.model');
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var studentsRouter = require('./routes/students');
-
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,9 +29,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+/////////////////////////////////// create routes for  API
+var indexRouter = require('./routes/index');
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
+var studentsRouter = require('./routes/students');
 app.use('/students', studentsRouter);
+////////////////////////////////////////////////////////////////
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

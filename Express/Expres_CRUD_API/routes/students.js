@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-// var mongoose = require("mongoose");
+var mongoose = require("mongoose");
 const StudentModel = require('../models/student.model');
 
 /* GET students listing. */
 router.get('/', function (req, res, next) {
     res.send('hello from students routing');
 });
+
 
 router.post('/add', async function (req, res, next) {
     try {
@@ -37,6 +38,7 @@ router.get('/list', async function (req, res, next) {
 });
 
 
+// Search by firstName
 router.get('/searchByFirstName', async function (req, res, next) {
     try {
         const firstNameQuery = req.query.firstName;
@@ -48,7 +50,7 @@ router.get('/searchByFirstName', async function (req, res, next) {
     }
 });
 
-
+// Search by id
 router.get('/searchById', async function (req, res, next) {
     try {
         const IdQuery = req.query.id;
@@ -61,6 +63,17 @@ router.get('/searchById', async function (req, res, next) {
 });
 
 
+// delete 
+// router.delete('/deleteById', async function (req, res, next) {
+//     try {
+//         const Id = req.query.studentId;
+//         const student = await StudentModel.findByIdAndRemove(Id);
+//         res.send({students: student });
+//     }
+//     catch (err) {
+//         console.log(err);
+//     }
+// });
 
 
 
